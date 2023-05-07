@@ -9,12 +9,12 @@ function init() {
   const select = document.getElementById('voice-select');
   let voices = [];
 
-  window.addEventListener('load', () => {
+  synth.addEventListener('voiceschanged', () => {
     voices = synth.getVoices();
 
     for (let i = 0; i < voices.length; i++) {
       let option = document.createElement('option');
-      option.textContent = `${voices[i].name} + (${voices[i].lang})`;
+      option.textContent = `${voices[i].name} (${voices[i].lang})`;
       option.value = i;
       select.appendChild(option);
     }
